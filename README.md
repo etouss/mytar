@@ -1,1 +1,63 @@
 # mytar
+USAGE :
+       mytar {c|x|a|d|l|h|diff|usage|cat|concat} [ksvzuC ] [ARG...]
+
+MODE :
+Créer une archive :
+       mytar -c [-f ARCHIVE] [OPTIONS] [FICHIERS...]
+
+Extraire une archive :
+       mytar -x [-f ARCHIVE] [OPTIONS] [MEMBRES...]
+
+Ajouter à une archive :
+       mytar -a [-f ARCHIVE] [OPTIONS] [FICHIERS...]
+
+Supprimer d'une archive :
+       mytar -d [-f ARCHIVE] [OPTIONS] [MEMBRES...]
+
+Liste le contenu d'une archive :
+       mytar -l [-f ARCHIVE] [OPTIONS] [MEMBRES...]
+
+Affiche le contenu d'un/plusieurs fichier(s) :
+        mytar --cat [-f ARCHIVE] [MEMBRES...]
+
+Concatener deux ou plusieurs archives :
+        mytar --concat [-f ARCHIVE] [ARCHIVES...]
+
+
+        mytar --diff [-f ARCHIVE] [MEMBRES] [FICHIER]
+
+Usages :
+        mytar --usage
+        mytar -h
+
+
+OPTIONS :
+    -k : mode [Extraction]
+        lors de l'extraction, indique que les fichiers existants
+        ne doivent pas être remplacés ; un message d'avertissement est affiché
+
+    -s : mode [Création | Ajout]
+        les liens symboliques ne sont pas ignorés
+
+    -v : mode [Création | Extraction | Ajout]
+        permet la vérification de l'intégrité des données :
+        en mode ajout ou création, l'empreinte md5 de chaque fichier ordinaire est calculée et copiée dans l'entête
+        en mode extraction, l'empreinte de chaque fichier extrait est comparée avec le champ checksum dans l'archive, si celui-ci a été renseigné
+
+    -z : mode [Création | Extraction | liste]
+        Cette option indique que l'archive concernée est compressée son nom a alors le suffixe .mtr.gz.
+        En mode création, l'archive est compressée avec la commande gzip une fois tous les fichiers traités.
+        En mode affichage ou extraction, l'archive est décompressée avec gunzip avant d'être lue
+
+    -u : mode [Ajout | Extraction]
+        En mode ajout ou extraction, cette option fait ignorer les fichiers plus anciens :
+        Ne sont ajoutés à l'archive que les fichiers ayant une date de dernière modification plus récente
+        que la (ou les) version(s) éventuellement présente(s) dans le fichier d'archive
+        Ne sont extraits que les fichiers ayant une date de dernière modification plus récente que
+        le fichier éventuellement déjà présent dans l'arborescence.
+
+    -C rep : mode [Création | Extraction]
+        indique que le répertoire rep devient la racine de l'arborescence archivée.
+        En mode création, cela signifie que les chemins path1 ... pathn, ainsi que les chemins écrits dans l'archive, sont relatifs à rep
+        En mode extraction, cela signifie que l'archive doit être restaurée dans rep
