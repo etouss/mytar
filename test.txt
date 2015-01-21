@@ -1,0 +1,34 @@
+Commandes soutenance :
+
+DDL l’archive 
+Enlever le free(tmp)
+Modifier real_path : creation.c mymd5
+Modifier real_path : archiver.c readlink()
+Creer archive -z;
+\n dans liste
+show2 vs show in desarchiver.c
+Switch show and mkdir ?
+ajout Z ok: main.c
+Del z ok:main.c
+cat z ok : main.c
+segfault usage.
+Modif Concat
+
+./mytar.out --usage
+./mytar.out -csvzCf archiveLienSym.mtr.gz Archive1 ../Dossier1 ../DossierSym
+./mytar.out -dfz archiveLienSym.mtr.gz Archive1/DossierSym/tp2.pdf
+./a.out alire.txt
+./mytar.out -avuzf archiveLienSym.mtr.gz alire.txt main.c archiver.h
+
+./mytar.out -zlf archiveLienSym.mtr.gz
+./mytar.out --cat -fz archiveLienSym.mtr.gz alire.txt
+./mytar.out --diff -fz archiveLienSym.mtr.gz alire.txt
+./mytar.out -czf archiv2conca.mtr.gz archiver.c main.c desarchiver.c
+
+./mytar.out -cfv rr.mtr archiver.c
+nano modif 
+
+./mytar.out --concat -fz archiveLienSym.mtr.gz archiv2conca.mtr.gz
+./mytar.out -xuvzCf archiveLienSym.mtr.gz DossierEx Archive1/DossierSym
+
+concat -z ? 
